@@ -1,0 +1,90 @@
+{
+  "name": "dsh-model-proxy",
+  "version": "2.1.3",
+  "description": "Route DeepSeek Harness model API requests through a system, custom, or SOCKS proxy; requests outside the configured domains stay direct. (Fork: dsh engines range aligned with peer deps, loopback Host with trailing dot accepted.)",
+  "type": "module",
+  "license": "MIT",
+  "author": "TNTChinaAAA",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "proxy",
+    "socks",
+    "cordis",
+    "openai",
+    "anthropic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TNTChinaAAA/dsh-model-proxy.git"
+  },
+  "homepage": "https://github.com/TNTChinaAAA/dsh-model-proxy",
+  "bugs": {
+    "url": "https://github.com/TNTChinaAAA/dsh-model-proxy/issues"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "config.example.json",
+    "README.md",
+    "README_zh.md",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node test/run-all.mjs"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0 || >=0.3.0-rc.1 <0.4.0-0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-api-remotes"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.1-rc.2 <0.2.2-0 || >=0.2.2-rc.1 <0.3.0-0 || >=0.3.0-rc.1 <0.4.0-0",
+    "@deepseek-ai/schemastery": ">=3.18.5-0 <4.0.0",
+    "undici": ">=6.0.0 <8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "undici": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5",
+    "undici": "^7.28.0"
+  },
+  "contributors": [
+    "recyvan (upstream author)"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "//": "Reference only: the live configuration lives in the DSH settings namespace `model-proxy` (Settings → Model Proxy). Every key below maps one-to-one to a field on that page; this file is never read at runtime.",
+  "mode": "rule",
+  "proxyType": "socks5h",
+  "proxyUri": "socks5h://127.0.0.1:7890",
+  "proxyHosts": [],
+  "excludeHosts": [],
+  "allowInsecureUpstream": false,
+  "extendToTools": false,
+  "logLevel": "info"
+}
